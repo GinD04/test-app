@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
 // Экран «Матчи тура» — задание в README.md, часть 1.
