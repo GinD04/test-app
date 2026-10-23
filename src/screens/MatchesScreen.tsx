@@ -1,9 +1,9 @@
 import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { useState } from 'react';
-import { MatchCard } from '../components/MatchesCard.components';
+import { MatchCard } from '../components/MatchesCard';
 import { UpdatedAgo } from '../components/UpdatedAgo';
 import { useFavorites } from '../hooks/useFavorites';
-import { useMatches } from '../hooks/useMatmes';
+import { useMatches } from '../hooks/useMatches';
 import { Filter, filterMatches } from '../shared';
 
 const FILTERS: { key: Filter; label: string }[] = [
@@ -31,13 +31,8 @@ export function MatchesScreen() {
         </View>
       </View>
 
-      <ScrollView
-        horizontal
-        showsHorizontalScrollIndicator={false}
-        contentContainerStyle={styles.filters}
-        style={{
-          flexGrow: 0
-        }}
+      <View
+        style={styles.filters}
       >
         {FILTERS.map(({ key, label }) => (
           <FilterChip
@@ -47,7 +42,7 @@ export function MatchesScreen() {
             onPress={() => setFilter(key)}
           />
         ))}
-      </ScrollView>
+      </View>
 
       {loading ? (
         <Text style={styles.message}>Загрузка…</Text>
@@ -129,6 +124,8 @@ const styles = StyleSheet.create({
   filters: {
     gap: 8,
     marginBottom: 2,
+    flexDirection: 'row',
+    padding: 5
   },
   chip: {
     paddingHorizontal: 7,
