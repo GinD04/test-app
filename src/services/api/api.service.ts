@@ -3,9 +3,6 @@ import { ApiConfig, ApiError, Method, RequestOptions } from "../../shared/api.ty
 
 const config: ApiConfig = {
   baseURL: MATCHES_URL,
-  headers: {
-    'Content-Type': 'application/json',
-  },
 };
 
 const buildUrl = (endpoint: string, params?: Record<string, string | number>) => {
